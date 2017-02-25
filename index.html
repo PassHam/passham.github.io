@@ -1,1 +1,51 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8" />
+  <title>PassHam</title>
+</head>
+
+<style type="text/css">
+    body { text-align: center; }
+
+    input { text-align: center; }
+  </style>
+
+<body>
+  <div>
+    <label for="masterpassword">Master Password</label><br>
+    <input id="masterpassword" size="30" type="password" />
+  </div>
+
+  <div>
+    <label for="password">Password</label><br>
+    <input id="password" size="30" type="text" />
+  </div>  
+
+  <div>
+    <br>
+    <input type="submit" value="Generate Password" onclick="getResultPassword()"></input>
+  </div>
+
+  <div>
+    <br>
+    <label for="password">Password Result</label><br>
+    <input id="resultpassword" type="text" readonly />
+  </div>
+</body>
+
+<script>
+  function getResultPassword() { 
+      var result = generate(document.getElementById('masterpassword').value, document.getElementById('password').value);
+      var resultPasswordField = document.getElementById('resultpassword')
+
+      resultPasswordField.value = result.resultpassword
+      resultPasswordField.focus();
+      resultPasswordField.select();
+    };
+</script>
+
+<script src="password.js"></script>
+</html>
